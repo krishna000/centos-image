@@ -66,14 +66,6 @@ RUN /usr/local/bin/pip3.11 --version
 # Check that SSL module loads and OpenSSL version prints correctly
 # RUN /usr/local/bin/python3.11 -c "import ssl; print(ssl.OPENSSL_VERSION)"
 
-RUN ln -s /usr/local/bin/python3.11 /usr/bin/python3
-
-RUN ln -s /usr/local/bin/pip3.11 /usr/bin/pip3
-
-RUN cd /usr/local/lib/python3.11 && \
-    python3 -m pip install --upgrade pip setuptools && \
-    python3 -m ensurepip && \
-    python3 -m pip install --force-reinstall --no-cache-dir ssl
 # Install pyinstaller via pip
 RUN /usr/local/bin/pip3.11 install pyinstaller
 # RUN /usr/local/bin/pip3.11 install pyinstaller==6.13.0 --trusted-host pypi.org --trusted-host files.pythonhosted.org --index-url http://pypi.org/simple
